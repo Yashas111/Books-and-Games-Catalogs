@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../assets/Images/star.ico" />
+        <link href="/assets/bootstrap themes/1/theme.css" type="text/css" rel="stylesheet">
+        <link href="/assets/styles5.css" type="text/css" rel="stylesheet">
+        <script src="/assets/app2.js"></script>
+        <title>GameInfo</title>
+    </head>
+    <body>
+        <!-- navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-expand-md navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand">MENU</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile/">Discuss<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile/bookinfo">BookInfo</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/profile/gameinfo">GameInfo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile/tagged">Tagged items</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile/orders">Orders</a>
+                  </li>
+                </ul>
+                  <div id="logout">
+                    <a href="/auth/logout" class="btn btn-outline-success">Log out</a>
+                  </div>
+              </div>
+            </div>
+        </nav>
+
+        <!-- heading -->
+        <div class="jumbotron text-center">
+            <h1 class="display-1">Deluxe Catalogs</h1>
+        </div>
+
+        <nav class="nav justify-content-center nav-pills flex-column flex-md-row" id="genre">
+            <a class="nav-link active" href="gameinfo">All</a>
+            <a class="nav-link" href="stealth">Stealth</a>
+            <a class="nav-link" href="racing">Racing</a>
+            <a class="nav-link" href="adventure">Action-Adventure</a>
+        </nav>
+
+        <!-- search bar -->
+        <div class="container">
+            <input class="form-control form-control-lg" id="searchBar-games" type="text" placeholder="search games...">
+        </div>
+
+        <div class="container text-muted">
+            <!-- cards -->
+            <div class="row games">
+              <% games.forEach(function(gms){ %>
+                <div class="col-md-4 col-lg-3 game">
+                    <div class="card">
+                        <img src= <%= gms.image %> class="card-img-top img-fluid" />
+                        <form method="PUT" action="/profile/MarkedGames/<%= gms.gid %>">
+                          <button class="btn btn-success bukmark-btn" id="tag" data-toggle="tooltip" data-placement="top" title="Tag this game">+</button>
+                        </form>
+                        <div class="card-block text-center">
+                            <h3 class="card-title"><%= gms.gname %></h3>
+                            <h5>-<%= gms.company %></h5>
+                            <p id="price" style="display: none;"><%= gms.price %></p>
+                            <button type="button" class="btn btn-outline-info details-btn" data-toggle="modal" data-target=".bd-example-modal-lg">Details...</button>
+                            <p style="display: none;"><%= gms.description %></p>
+                        </div>
+                    </div>
+                </div>
+              <% }) %>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <% include Partials/modal.ejs %>
+
+        <!-- footer -->
+        <% include Partials/footer.ejs %>
+
+    </body>
+
+    <script src="/assets/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script>
+      var activePage = "<%= str %>";
+      var links = document.getElementById("genre").getElementsByTagName("a");
+      switch (activePage) {
+        case "gameinfo": links[0].className = "nav-link active";
+          removeActive(0);
+          break;
+        case "stealth": links[1].className = "nav-link active";
+          removeActive(1);
+          break;
+        case "racing": links[2].className = "nav-link active";
+          removeActive(2);
+          break;
+        case "adventure": links[3].className = "nav-link active";
+          removeActive(3);
+          break;
+        default:
+      }
+      function removeActive(n) {
+          for(i=0;i<4;i++){
+            if(i != n){
+              links[i].className = "nav-link";
+            }
+          }
+      }
+      var count = 0;
+      <% games.forEach(function(gms){ %>
+        <% currentUserTaggedGames.forEach(function(tgms){ %>
+          if(<%= gms.gid %> == <%= tgms.gid %>){
+            document.getElementsByClassName("bukmark-btn")[count].style.display = "none";
+          }
+        <% }) %>
+        count++;
+      <% }) %>
+    </script>
+</html>

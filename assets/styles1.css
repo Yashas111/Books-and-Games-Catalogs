@@ -1,0 +1,64 @@
+.container .nav-link:hover{
+    border-bottom: 2px solid white;
+}
+
+.nav-link{
+    font-size: 18px;
+}
+
+.nav-item{
+    margin-left: 15px;
+}
+
+.container .active{
+    border-bottom: 2px solid white;
+}
+
+.active:hover{
+    border-bottom: none;
+}
+
+.jumbotron{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    color: springgreen;
+}
+
+.card img{
+    height: 200px;
+}
+
+.card-block{
+    padding: 5px;
+}
+
+.card{
+    margin-top: 15px;
+}
+
+#desc{
+    color: springgreen;
+    margin: 15px 0;
+}
+
+@media (min-width: 768px){
+    .display-1{
+        font-size: 150px;
+    }
+}
+
+@media (max-width: 560px){
+    #login-and-signup{
+        margin-top: 10px;
+    }
+    
+    #login-and-signup a:nth-child(2){
+        float: right;
+    }
+    
+    .jumbotron{
+        margin-top: 35px;
+        padding-bottom: 10px;
+    }
+}

@@ -1,0 +1,121 @@
+.container .nav-link:hover{
+    border-bottom: 2px solid white;
+}
+
+.nav-link{
+    font-size: 18px;
+}
+
+.nav-item{
+    margin-left: 15px;
+}
+
+.container .active{
+    border-bottom: 2px solid white;
+}
+
+.active:hover{
+    border-bottom: none;
+}
+
+#heading-img{
+    width: 100%;
+}
+
+.jumbotron{
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    color: springgreen;
+}
+
+.nav-pills{
+    margin-bottom: 20px;
+}
+
+.card img{
+    height: 300px;
+}
+
+.card:hover{
+    box-shadow: 8px 8px 10px black;
+}
+
+.card{
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.col-md-4{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.card .bukmark-btn{
+    padding: 0;
+    font-size: 20px;
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.modal-content{
+    padding: 15px;
+}
+
+.modal .row .btn{
+    float: right;
+    z-index: 1;
+}
+
+.modal-content .col-sm-12{
+    color: springgreen;
+}
+
+.text-muted{
+    margin-bottom: 20px;
+}
+
+.footer{
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.footer a{
+    color: #aaa;
+}
+
+.footer span{
+    color: white;
+}
+
+@media (min-width: 768px){
+    .display-1{
+        font-size: 150px;
+    }
+    .card{
+      height: 450px;
+    }
+}
+
+@media (max-width: 560px){
+    .jumbotron{
+        margin-top: 35px;
+        padding-bottom: 10px;
+    }
+    .card img{
+        height: 300px;
+    }
+    .card{
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .book .card{
+      height: 600px;
+    }
+    .display-1{
+        font-size: 87px;
+    }
+}

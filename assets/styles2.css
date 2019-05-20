@@ -1,0 +1,73 @@
+.nav-link:hover{
+    border-bottom: 2px solid white;
+}
+
+.nav-link{
+    font-size: 18px;
+    border-bottom: 2px solid #375a7f;
+}
+
+.nav-item{
+    margin-left: 15px;
+}
+
+.active{
+    border-bottom: 2px solid white;
+}
+
+.content{
+    margin-top: 150px;
+    text-align: center;
+}
+
+.card{
+    padding: 20px;
+}
+
+.content input{
+    width: 50%;
+    margin: 0 auto;
+    height: 50px;
+    margin-top: 3%;
+}
+
+.card .btn{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#ifSame{
+  color: red;
+}
+
+#login,#signup{
+    display: inline-block;
+}
+
+@media (min-width: 768px){
+
+}
+
+@media (max-width: 768px){
+    .content input{
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .card .btn{
+        width: 70%;
+    }
+}
+
+@media (max-width: 450px){
+    .content input{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .card .btn{
+        width: 70%;
+    }
+}
